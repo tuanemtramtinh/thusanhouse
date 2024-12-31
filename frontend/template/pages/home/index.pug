@@ -1,7 +1,143 @@
-include ../../layouts/default.pug
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
 
 block title 
   title Trang Chủ
 
 block main 
-  div Trang Chủ
+  -
+    tours = [
+      {
+        image: 'slider-1.JPG',
+        title: 'Tour 1'
+      },
+      {
+        image: 'slider-2.JPG',
+        title: 'Tour 2'
+      },
+      {
+        image: 'slider-3.JPG',
+        title: 'Tour 3'
+      },
+      {
+        image: 'slider-4.JPG',
+        title: 'Tour 4'
+      },
+      {
+        image: 'slider-5.JPG',
+        title: 'Tour 5'
+      }
+    ]
+
+  div(class="intro")
+    div(class="container")
+      div(class="intro__wrapper")
+        div(class="intro__info")
+          div(class="intro__info-left")
+            h2 Quên đi muộn phiền, thư giãn cuộc sống.
+
+            div(class="intro__desc") Thusanhouse cung cấp cho bạn hành trình đưa bạn đến với Bến Tre, vùng đất nổi tiếng với những vườn dừa xanh mướt, hệ thống kênh rạch chằng chịt và cuộc sống bình dị của người dân miền Tây. Những tour du lịch tại đây không chỉ giúp bạn tận hưởng vẻ đẹp thiên nhiên mà còn mang lại cơ hội trải nghiệm văn hóa đặc sắc, ẩm thực độc đáo, và những hoạt động đậm chất miệt vườn.
+
+            button(type="button")  Xem Thêm
+
+            div(class="intro__icon")
+              div 
+                <i class="fa-solid fa-location-dot"></i>
+                div Bến Tre
+              div 
+                <i class="fa-solid fa-star"></i>
+                div Đánh giá tốt 
+              div 
+                <i class="fa-solid fa-users"></i>
+                div Phục vụ toàn cầu
+
+
+          div(class="swiper intro__info-right")
+            div(class="swiper-wrapper")
+              div(class="swiper-slide")
+                img(src="../../assets/images/slider-1.JPG" alt="")
+              div(class="swiper-slide")
+                img(src="../../assets/images/slider-2.JPG" alt="")
+              div(class="swiper-slide")
+                img(src="../../assets/images/slider-3.JPG" alt="")
+              div(class="swiper-slide")
+                img(src="../../assets/images/slider-4.JPG" alt="")
+              div(class="swiper-slide")
+                img(src="../../assets/images/slider-5.JPG" alt="")
+            div(class="swiper-pagination")
+
+        //- form(class="intro__booking")
+        //-   input(type="text" name="fullName" placeholder="Họ và tên")
+        //-   input(type="tel" name="phone" placeholder="Số điện thoại")
+        //-   input(type="email" name="email" placeholder="Email")
+        //-   select(name="quantity")
+        //-     option(value="1") 1 người
+        //-     option(value="2") 2 người
+        //-     option(value="3") 3 người
+        //-     option(value="4") 4 người 
+        //-   select(name="tour")
+        //-     option(value="1") Tour 1
+        //-     option(value="2") Tour 2
+        //-     option(value="3") Tour 3
+        //-     option(value="4") Tour 4
+
+  //- Được chọn nhiều nhất
+  div(class="most-picked")
+    div(class="container")
+      div(class="most-picked__wrapper")
+        div(class="most-picked__list")
+          each tour in tours
+            a(href="" class="most-picked__item")
+              img(src=`../../assets/images/${tour.image}` alt=`${tour.title}`)
+              div(class="most-picked__item-info")
+                h4= tour.title 
+
+  //- Tour du lịch
+  div(class="tour")
+    div(class="container")
+      div(class="tour__wrapper")
+        +box-head("Tour du lịch")
+
+  //- Hình ảnh
+  div(class="gallery")
+    div(class="container")
+      div(class="gallery__wrapper")
+        +box-head("Hình ảnh")
+
+  //- Blog
+  div(class="blog")
+    div(class="container")
+      div(class="blog__wrapper")
+        +box-head("Blog")
+
+
+  //- Tại sao chọn chúng tôi
+  div(class="why")
+    div(class="container")
+      div(class="why__wrapper")
+        div(class="why__info")
+          h2(class="why__title") Tại sao chọn chúng tôi
+          div(class="why__desc") Thusanhouse cam kết mang đến cho bạn những trải nghiệm tốt nhất, giúp bạn tận hưởng cuộc sống bình dị, thư giãn và tìm lại chính mình.
+        div(class="why__list")
+          div(class="why__item")
+            i(class="fa-solid fa-star")
+            h4 Chất lượng
+            div Chúng tôi cam kết mang đến cho bạn những trải nghiệm tốt nhất.
+          div(class="why__item")
+            i(class="fa-solid fa-users")
+            h4 Phục vụ toàn cầu
+            div Chúng tôi luôn lắng nghe và phục vụ khách hàng một cách tận tình.
+          div(class="why__item")
+            i(class="fa-solid fa-location-dot")
+            h4 Địa điểm đẹp
+            div Bến Tre là điểm đến lý tưởng cho những chuyến du lịch cuối tuần.
+
+  //- Đánh giá của khách hàng
+  div(class="comment")
+    div(class="container")
+      div(class="comment_wrapper")
+
+        
+
+
+
